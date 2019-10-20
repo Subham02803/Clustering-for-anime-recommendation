@@ -29,39 +29,54 @@ def get_genre(name):
     str = 'Error'
     return str, -1
 
+v0 = c0.sort_values(ascending=False).index
+v1 = c1.sort_values(ascending=False).index
+v2 = c2.sort_values(ascending=False).index
+v3 = c3.sort_values(ascending=False).index
+
+
 cluster = -1
 def get_reated_anime(name):
-    for s in c0.index:
-        if(name == s):
-            cluster = 0
+    m = len(v0)
+    for i,s in enumerate(v0):
+        if (name == s):
+            if(m > i):
+                cluster = 0
+                m = i
             break
 
-    if(cluster == 0):
+    for i,s in enumerate(v1):
+        if(name == s):
+            if(m > i):
+                cluster = 1
+                m = i
+            break
+
+    for i, s in enumerate(v2):
+        if (name == s):
+            if (m > i):
+                cluster = 2
+                m = i
+            break
+
+    for i, s in enumerate(v3):
+        if (name == s):
+            if (m > i):
+                cluster = 3
+                m = i
+            break
+
+    if (cluster == 0):
         values = c0.sort_values(ascending=False)[0:5].index
         return values
 
-    for s in c1.index:
-        if(name == s):
-            cluster = 1
-            break
-
-    if(cluster == 1):
+    if (cluster == 1):
         values = c1.sort_values(ascending=False)[0:5].index
         return values
 
-    for s in c2.index:
-        if(name == s):
-            cluster = 2
-            break
-
-    if(cluster == 2):
+    if (cluster == 2):
         values = c2.sort_values(ascending=False)[0:5].index
         return values
-
-    for s in c3.index:
-        if(name == s):
-            cluster = 3
-            break
 
     if(cluster == 3):
         values = c3.sort_values(ascending=False)[0:5].index
