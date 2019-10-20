@@ -66,4 +66,3 @@ def get_reated_anime(name):
     if(cluster == 3):
         values = c3.sort_values(ascending=False)[0:5].index
         return values
-
