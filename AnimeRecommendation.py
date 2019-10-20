@@ -50,7 +50,7 @@ output3.close()
 
 
 
-
+'''
 
 def Anime_Info_List(animelist):
     episode_list = list()
@@ -120,3 +120,4 @@ c3_data['genre'],c3_data['episode'],c3_data['rating'],c3_data['member'] =  Anime
 c3_data.iloc[:,1:4] = c3_data.iloc[:,1:4].astype(int) # change to numeric object to integer
 keyword_occurences, dum = count_word(c3_data, 'genre', set_keywords)
 print('cluster 3\nAVG episode : {0}\nAVG movie rating : {1}\nAVG member : {2}'.format(c3_data['episode'].mean(), c3_data['rating'].mean(),c3_data['member'].mean()))
+'''
