@@ -1,11 +1,26 @@
 import tkinter as tk
+import Find_data as fd
 
 root = tk.Tk()
 canvas = tk.Canvas(root, height=700, width=800, bg="#e6e6ff")
 canvas.pack()
 
+def Get_Related_Anime(i, name):
+    print(name)
+
 def Get_Anime_Genre(id, name, rate):
-    
+    g,index = fd.get_genre(name)
+    frame2 = tk.Frame(root, bg="#e6e6ff", bd=5)
+    frame2.place(relx=0.50, rely=0.36, relwidth=0.8, relheight=0.07, anchor='n')
+
+    label4 = tk.Label(frame2, text="Genre:", bg="#e6e6ff", justify="left", bd=7)
+    label4.place(relx=0.1, rely=0.04, relwidth=0.15, relheight=0.9)
+    gen_label = tk.Label(frame2, text=g, bg="#f2f2f2")
+    gen_label.place(relx=0.3, rely=0.04, relwidth=0.7, relheight=0.9)
+
+    button = tk.Button(root, text="Find the similer anime", bg="#6600ff", activebackground="#1f1f7a", bd=5, command=lambda: Get_Related_Anime(name))
+    button.place(relx=0.55, rely=0.45, relwidth=0.2, relheight=0.05, anchor='n')
+
 
 
 frame1 = tk.Frame(root, bg="#e6e6ff", bd=5)
@@ -26,7 +41,7 @@ label3.place(relx=0.1, rely=0.68, relwidth=0.15, relheight=0.3)
 entry3 = tk.Entry(frame1, bg="#f2f2f2")
 entry3.place(relx=0.3, rely=0.68, relwidth=0.7, relheight=0.3)
 
-button = tk.Button(root, text="Find the similer anime", bg="#6600ff", activebackground="#1f1f7a", bd=5, command=lambda: Get_Anime_Genre(entry1.get(), entry2.get(), entry3.get()))
+button = tk.Button(root, text="Type of the anime", bg="#6600ff", activebackground="#1f1f7a", bd=5, command=lambda: Get_Anime_Genre(entry1.get(), entry2.get(), entry3.get()))
 button.place(relx=0.55, rely=0.3, relwidth=0.2, relheight=0.05, anchor='n')
 
 root.mainloop()

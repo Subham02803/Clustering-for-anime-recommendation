@@ -1,10 +1,6 @@
 import numpy as np
 import pandas as pd 
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-plt.rcParams['figure.figsize'] = (6, 4)
-plt.style.use('ggplot')
-#get_ipython().run_line_magic('config', "InlineBackend.figure_formats = {'png', 'retina'}")
+import pickle
 anime = pd.read_csv('anime.csv')
 user = pd.read_csv('rating.csv')
 Mean_Rate = user.groupby(['user_id']).mean().reset_index()
@@ -35,6 +31,27 @@ c0 = user_anime[user_anime['clusters'] == 0].drop('clusters', axis=1).mean()
 c1 = user_anime[user_anime['clusters'] == 1].drop('clusters', axis=1).mean()
 c2 = user_anime[user_anime['clusters'] == 2].drop('clusters', axis=1).mean()
 c3 = user_anime[user_anime['clusters'] == 3].drop('clusters', axis=1).mean()
+
+output0 = open('C0File.pkl', 'wb')
+pickle.dump(c0, output0)
+output0.close()
+
+output1 = open('C1File.pkl', 'wb')
+pickle.dump(c1, output1)
+output1.close()
+
+output2 = open('C2File.pkl', 'wb')
+pickle.dump(c2, output2)
+output2.close()
+
+output3 = open('C3File.pkl', 'wb')
+pickle.dump(c3, output3)
+output3.close()
+
+
+
+
+
 def Anime_Info_List(animelist):
     episode_list = list()
     genre_list = list()
