@@ -5,8 +5,17 @@ root = tk.Tk()
 canvas = tk.Canvas(root, height=700, width=800, bg="#e6e6ff")
 canvas.pack()
 
-def Get_Related_Anime(i, name):
-    print(name)
+def split_anime(anime_list):
+    print(anime_list)
+
+def Get_Related_Anime(name):
+    rel_anime = fd.get_reated_anime(name)
+    st = split_anime(rel_anime)
+    #Cross Game
+    frame3 = tk.Frame(root, bg="white", bd=5)
+    frame3.place(relx=0.50, rely=0.52, relwidth=0.8, relheight=0.43, anchor='n')
+
+
 
 def Get_Anime_Genre(id, name, rate):
     g,index = fd.get_genre(name)
