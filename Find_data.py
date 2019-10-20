@@ -37,7 +37,7 @@ def get_reated_anime(name):
             break
 
     if(cluster == 0):
-        values = c0.sort_values(ascending=False)[0:15].index
+        values = c0.sort_values(ascending=False)[0:5].index
         return values
 
     for s in c1.index:
@@ -46,7 +46,7 @@ def get_reated_anime(name):
             break
 
     if(cluster == 1):
-        values = c1.sort_values(ascending=False)[0:15].index
+        values = c1.sort_values(ascending=False)[0:5].index
         return values
 
     for s in c2.index:
@@ -55,7 +55,7 @@ def get_reated_anime(name):
             break
 
     if(cluster == 2):
-        values = c2.sort_values(ascending=False)[0:15].index
+        values = c2.sort_values(ascending=False)[0:5].index
         return values
 
     for s in c3.index:
@@ -64,6 +64,6 @@ def get_reated_anime(name):
             break
 
     if(cluster == 3):
-        values = c3.sort_values(ascending=False)[0:15].index
+        values = c3.sort_values(ascending=False)[0:5].index
         return values
 

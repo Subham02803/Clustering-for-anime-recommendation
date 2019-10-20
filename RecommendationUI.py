@@ -6,14 +6,20 @@ canvas = tk.Canvas(root, height=700, width=800, bg="#e6e6ff")
 canvas.pack()
 
 def split_anime(anime_list):
-    print(anime_list)
+    st = 'Related movies:\n'
+    for x in anime_list:
+        st = st+x+'\n'
+    return st
 
 def Get_Related_Anime(name):
     rel_anime = fd.get_reated_anime(name)
     st = split_anime(rel_anime)
     #Cross Game
-    frame3 = tk.Frame(root, bg="white", bd=5)
+    frame3 = tk.Frame(root, bg="#e6e6ff", bd=5)
     frame3.place(relx=0.50, rely=0.52, relwidth=0.8, relheight=0.43, anchor='n')
+
+    label_output = tk.Label(frame3, text=st, bg="#e6e6ff", justify="left", bd=7)
+    label_output.place(relx=0.1, rely=0.1, relwidth=0.9, relheight=0.9)
 
 
 
