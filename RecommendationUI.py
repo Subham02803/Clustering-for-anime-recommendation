@@ -6,7 +6,7 @@ canvas = tk.Canvas(root, height=700, width=800, bg="#e6e6ff")
 canvas.pack()
 
 def split_anime(anime_list):
-    st = 'Related movies:\n'
+    st = 'Related Animes:\n'
     for x in anime_list:
         st = st+x+'\n'
     return st
